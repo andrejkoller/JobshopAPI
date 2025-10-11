@@ -9,5 +9,9 @@
         public string Gender { get; set; } = "";
         public string Diagnosis { get; set; } = "";
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public DateTime LastUpdatedAt { get; set; } = DateTime.UtcNow;
+
+        public DateTime AdmissionDate { get; set; } = DateTime.UtcNow;
+        public DateTime? DischargeDate { get; set; }
     }
 }

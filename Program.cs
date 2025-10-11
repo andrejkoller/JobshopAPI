@@ -28,6 +28,7 @@ namespace PatientViewerAPI
                 options.UseSqlServer(connectionString));
 
             builder.Services.AddControllers();
+            builder.Services.AddScoped<Services.PatientService>();
             builder.Services.AddOpenApi();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
