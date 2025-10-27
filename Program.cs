@@ -1,8 +1,9 @@
 
 using Microsoft.EntityFrameworkCore;
-using PatientViewerAPI.Data;
+using JobshopAPI.Services;
+using JobshopAPI.Data;
 
-namespace PatientViewerAPI
+namespace JobshopAPI
 {
     public class Program
     {
@@ -24,11 +25,11 @@ namespace PatientViewerAPI
             });
 
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-            builder.Services.AddDbContext<PatientViewerDbContext>(options =>
+            builder.Services.AddDbContext<JobshopDbContext>(options =>
                 options.UseSqlServer(connectionString));
 
             builder.Services.AddControllers();
-            builder.Services.AddScoped<Services.PatientService>();
+            builder.Services.AddScoped<UserService>();
             builder.Services.AddOpenApi();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
