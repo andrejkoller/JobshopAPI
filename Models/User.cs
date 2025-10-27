@@ -1,4 +1,6 @@
-﻿namespace JobshopAPI.Models
+﻿using System.Text.Json.Serialization;
+
+namespace JobshopAPI.Models
 {
     public class User
     {
@@ -13,6 +15,7 @@
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public DateTime LastUpdatedAt { get; set; } = DateTime.UtcNow;
 
+        [JsonConverter(typeof(JsonStringEnumConverter))]
         public UserRole Role { get; set; } = UserRole.JobSeeker;
     }
 

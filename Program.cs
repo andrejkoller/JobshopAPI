@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using JobshopAPI.Services;
 using JobshopAPI.Data;
+using System.Text.Json.Serialization;
 
 namespace JobshopAPI
 {
@@ -28,7 +29,10 @@ namespace JobshopAPI
             builder.Services.AddDbContext<JobshopDbContext>(options =>
                 options.UseSqlServer(connectionString));
 
-            builder.Services.AddControllers();
+            builder.Services.AddControllers().AddJsonOptions(options => {
+                options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+                });
+
             builder.Services.AddScoped<UserService>();
             builder.Services.AddOpenApi();
             builder.Services.AddEndpointsApiExplorer();

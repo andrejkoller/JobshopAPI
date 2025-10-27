@@ -13,7 +13,7 @@ namespace JobshopAPI.Controllers
         public async Task<IActionResult> GetAllUsers()
         {
             var users = await service.GetAllUsersAsync();
-            return users == null || users.Count == 0 ? NotFound("No patients found.") : Ok(users);
+            return users == null || users.Count == 0 ? NotFound("No users found.") : Ok(users);
         }
     }
 }
